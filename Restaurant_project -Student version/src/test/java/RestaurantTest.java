@@ -65,18 +65,13 @@ class RestaurantTest {
     
     @Test
     public void sum_of_prices_of_items_added_to_menu_should_be_equal_to_order_total() {
-    	
-    	String name;
-    	int price;
-    	restaurant.addToMenu(name, price);
-    	
-    	int price_of_selected_items = restaurant.getSelectedItemPrice();
-    	
-    	
-    	
-    }
     
-    
-    
+    	restaurant.addToMenu("Cappuccino", 310);
+    	
+    	int price_of_selected_items = restaurant.getSelectedItemPrice(); 
+    	
+    	assertEquals(698, price_of_selected_items);
+    	
+    }  
     
 }
