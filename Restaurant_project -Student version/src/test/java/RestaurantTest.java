@@ -19,8 +19,6 @@ class RestaurantTest {
         restaurant.addToMenu("Vegetable lasagne", 269);
     }
 
-    //>>>>>>>>>>>>>>>>>>>>>>>>>OPEN/CLOSED<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    //-------FOR THE 2 TESTS BELOW, YOU MAY USE THE CONCEPT OF MOCKING, IF YOU RUN INTO ANY TROUBLE
     @Test
     public void is_restaurant_open_should_return_true_if_time_is_between_opening_and_closing_time(){
         //WRITE UNIT TEST CASE HERE
@@ -32,16 +30,13 @@ class RestaurantTest {
 
     @Test
     public void is_restaurant_open_should_return_false_if_time_is_outside_opening_and_closing_time(){
-        //WRITE UNIT TEST CASE HERE
+    	
     	LocalTime testTime_if_Restaurant_is_open = LocalTime.parse("22:30:00");
     	Restaurant spiedRestaurant = Mockito.spy(restaurant);
     	Mockito.when(spiedRestaurant.getCurrentTime()).thenReturn(testTime_if_Restaurant_is_open);
     	assertFalse(spiedRestaurant.isRestaurantOpen());
     	
-
     }
-
-    //<<<<<<<<<<<<<<<<<<<<<<<<<OPEN/CLOSED>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
     //>>>>>>>>>>>>>>>>>>>>>>>>>>>MENU<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -67,4 +62,21 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    @Test
+    public void sum_of_prices_of_items_added_to_menu_should_be_equal_to_order_total() {
+    	
+    	String name;
+    	int price;
+    	restaurant.addToMenu(name, price);
+    	
+    	int price_of_selected_items = restaurant.getSelectedItemPrice();
+    	
+    	
+    	
+    }
+    
+    
+    
+    
 }
